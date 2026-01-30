@@ -1,0 +1,294 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --green: #1f4d3a;
+  --green-light: #2f6c52;
+  --gold: #d4b35b;
+  --soft-bg: #f7f7f5;
+  --text: #2a2a2a;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--soft-bg);
+  color: var(--text);
+  line-height: 1.7;
+}
+
+header.hero {
+  position: relative;
+  height: 100vh;
+  background-image: url("https://www.kirklandwa.gov/files/assets/public/v/1/images/marinapark3retouched.jpg?dimension=pageimagefullwidth&w=1140");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body.resources header.hero {
+  background-image: url('https://www.kirklandwa.gov/files/sharedassets/public/parks-amp-comm-services/online-parks-guide/images/marina-park-fall2018-800x600.jpg');
+}
+
+body.history header.hero {
+  background-image: url('https://www.historylink.org/Content/Media/Photos/Large/Kirkland-Avenue-Kirkland-ca-1930.jpg');
+}
+
+body.info header.hero {
+  background-image: url('https://media-production.lp-cdn.com/cdn-cgi/image/format=auto,quality=85/https://media-production.lp-cdn.com/media/f8e08f7b-cf16-484e-9084-c417fcf6304d');
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.hero-content {
+  position: relative;
+  text-align: center;
+  color: white;
+  max-width: 900px;
+  padding: 20px;
+}
+
+.hero-content h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: 12px;
+}
+
+.hero-content p {
+  font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+}
+
+.subnav {
+  background: #ffffffdd;
+  border-bottom: 2px solid var(--gold);
+  padding: 12px 0;
+  text-align: center;
+  backdrop-filter: blur(6px);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.subnav span {
+  margin: 0 15px;
+  font-weight: 600;
+  color: var(--green);
+  cursor: pointer;
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.subnav span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 3px;
+  background: var(--gold);
+  transition: width 0.25s ease;
+}
+
+.subnav span:hover::after {
+  width: 100%;
+}
+
+.wrapper {
+  max-width: 1180px;
+  margin: auto;
+  padding: 30px 20px;
+  padding-top: 100px; /* ensures content starts below hero */
+}
+
+h2 {
+  color: var(--green);
+  margin-top: 50px;
+  margin-bottom: 16px;
+  font-size: 2rem;
+  border-left: 6px solid var(--gold);
+  padding-left: 12px;
+}
+
+a {
+  color: var(--green-light);
+}
+
+.card-list {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.07);
+}
+
+.card-list ul {
+  margin-left: 20px;
+}
+
+.card-list-info {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.07);
+  margin-top: -60px; /* overlaps hero slightly for style */
+  position: relative;
+  z-index: 1;
+}
+
+.timeline {
+  position: relative;
+  padding: 40px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 20px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--gold);
+}
+
+.timeline-item {
+  position: relative;
+  width: 18%;
+  text-align: center;
+  cursor: pointer;
+}
+
+.timeline-item .circle {
+  width: 30px;
+  height: 30px;
+  background: var(--green-light);
+  border-radius: 50%;
+  margin: 0 auto 10px;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.timeline-item.active .circle {
+  transform: scale(1.3);
+  background: var(--green);
+}
+
+.timeline-item h3 {
+  font-size: 1rem;
+  margin-bottom: 5px;
+  color: var(--green);
+}
+
+.timeline-item p {
+  display: none;
+  font-size: 0.9rem;
+  padding: 10px;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid var(--gold);
+  margin-top: 10px;
+}
+
+.timeline-item.active p {
+  display: block;
+}
+
+.map-box {
+  margin-top: 20px;
+}
+
+.map {
+  width: 100%;
+  height: 400px;
+  border-radius: 14px;
+  border: 2px solid var(--green-light);
+}
+
+.accordion {
+  background: white;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  border-left: 5px solid var(--gold);
+  overflow: hidden;
+}
+
+.accordion button {
+  background: var(--green-light);
+  color: white;
+  padding: 16px 20px;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-size: 16px;
+}
+
+.accordion-content {
+  display: none;
+  padding: 16px 20px;
+  background: #fafafa;
+}
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  background: var(--green-light);
+  color: white;
+  padding: 8px 30px;
+  margin: 30px 0;
+  border-radius: 30px;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background: var(--green);
+}
+
+.center {
+  text-align: center;
+  padding: 20px;
+}
+
+.gallery-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+figcaption {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.works-cited {
+  margin-top: 40px;
+  border-top: 2px solid #ddd;
+  padding-top: 20px;
+}
+
+.works-cited ul {
+  padding-left: 20px;
+}
