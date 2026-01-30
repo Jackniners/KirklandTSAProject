@@ -1,251 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kirkland Washington Community</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f9f9f9;
-      color: #333;
-      line-height: 1.6;
-    }
-    header {
-      background: #003366;
-      color: #fff;
-      padding: 30px 20px;
-      text-align: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    header h1 { font-size: 2rem; margin-bottom: 10px; }
-    header p { font-size: 1.1rem; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/jpg" href="KirkSeal.png">
+    <link rel="stylesheet" href="style.css">
+    <title>Kirkland Compass</title>
 
-    .container { max-width: 1200px; margin: auto; padding: 20px; display: none; }
+    <style>
+      .about-btn-wrapper {
+        margin-top: 28px;
+      }
 
-    h2 {
-      color: #003366;
-      margin-top: 40px;
-      margin-bottom: 15px;
-      border-bottom: 2px solid #003366;
-      padding-bottom: 5px;
-    }
+      .timeline-item p {
+        display: none;
+      }
 
-    ul { margin-bottom: 20px; }
-    a { color: #003366; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    .timeline { margin: 20px 0; padding-left: 20px; border-left: 4px solid #003366; }
-    .event { margin-bottom: 20px; }
-    .event-year { font-weight: bold; color: #003366; margin-bottom: 5px; }
-
-    .map { width: 100%; height: 400px; margin-top: 20px; border-radius: 8px; border: 2px solid #ccc; }
-
-    .dropdown-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.7);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
-
-    .dropdown-box {
-      background: #fff;
-      padding: 30px 40px;
-      border-radius: 10px;
-      text-align: center;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-    }
-
-    select {
-      padding: 10px;
-      font-size: 16px;
-      margin-top: 15px;
-      width: 150px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
-
-    .accordion {
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      margin-bottom: 15px;
-      background-color: #fff;
-      overflow: hidden;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-
-    .accordion button {
-      background-color: #003366;
-      color: #fff;
-      cursor: pointer;
-      padding: 15px 20px;
-      width: 100%;
-      text-align: left;
-      border: none;
-      outline: none;
-      font-size: 16px;
-    }
-
-    .accordion-content {
-      padding: 15px 20px;
-      display: none;
-      background-color: #f9f9f9;
-    }
-
-    .quote {
-      font-style: italic;
-      color: #555;
-      margin-top: 10px;
-    }
-  </style>
+      .timeline-item.active p {
+        display: block;
+      }
+    </style>
 </head>
+
 <body>
 
-<div class="dropdown-overlay" id="welcomeBox">
-  <div class="dropdown-box">
-    <h3>Do you live in Kirkland?</h3>
-    <select id="kirklandSelect" onchange="handleSelection()">
-      <option value="">Select an option</option>
-      <option value="yes">Yes</option>
-      <option value="no">No</option>
-    </select>
-    <p id="responseText" style="margin-top: 15px; font-weight: bold;"></p>
+<header class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1>Kirkland, Washington</h1>
+    <p>A community-focused guide for new residents and home seekers</p>
   </div>
-</div>
-
-<header>
-  <h1>Welcome to Kirkland, Washington</h1>
-  <p>A community-focused guide for new residents and home seekers</p>
 </header>
 
-<div class="container" id="mainContent">
 
-  <h2>About Kirkland</h2>
-  <p>Kirkland, Washington is a vibrant lakeside community east of Seattle. Known for its waterfront parks, public art, tech presence, and small-business culture, Kirkland blends natural beauty with strong community values.</p>
+<div class="subnav">
+  <span onclick="scrollToSection('about')">About</span>
+  <span id="whyMoveNav" onclick="scrollToSection('whyMoveSection')">Why Move?</span>
+  <span onclick="scrollToSection('history')">History</span>
+  <span onclick="scrollToSection('map')">Map</span>
+  <span onclick="scrollToSection('communities')">Communities</span>
+  <span onclick="scrollToSection('restaurants')">Restaurants</span>
+  <span onclick="scrollToSection('parks')">Parks</span>
+  <span onclick="scrollToSection('worksCited')">Works Cited</span>
+</div>
 
-  <h2>History of Kirkland</h2>
-  <div class="timeline">
-    <div class="event">
-      <div class="event-year">1886</div>
-      <p>Kirkland was founded by Peter Kirk with plans for a steel industry on Lake Washington.</p>
-    </div>
-    <div class="event">
-      <div class="event-year">1905</div>
-      <p>Ferry access connected Kirkland to Seattle, boosting growth.</p>
-    </div>
-    <div class="event">
-      <div class="event-year">1980s</div>
-      <p>Tech companies began to take root, driving rapid expansion.</p>
-    </div>
-    <div class="event">
-      <div class="event-year">2011</div>
-      <p>Annexation of surrounding neighborhoods increased population and area.</p>
-    </div>
-    <div class="event">
-      <div class="event-year">Today</div>
-      <p>Kirkland is home to diverse communities, businesses, waterfront recreation, and strong neighborhood connections.</p>
-    </div>
+<div class="wrapper" id="mainContent" style="display: block;">
+
+  <h2 id="about">About Kirkland</h2>
+
+  <div class="card-list">
+    <p>
+      Kirkland is a city close to Seattle on the east side of Lake Washington. It is well-known
+      for its parks, trails, walkable waterfront downtown, and significant tech presence.
+      There are roughly 97,000 residents, excellent schools, and a high cost of living in the city.
+      EvergreenHealth is one of the major employers, and the name "Kirkland" is well-known because
+      the city inspired the original name of Costco's Kirkland Signature brand.
+      It provides great restaurants, fantastic views, outdoor activities, and a vibrant sense of community.
+    </p>
   </div>
 
-  <h2>Community Map</h2>
-  <p>Explore key areas, parks, and neighborhoods.</p>
-  <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26882.363694387897!2d-122.2169586!3d47.6859576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54906dabebbd6bbb%3A0x77db7c2a5c1f98ad!2sKirkland%2C%20WA!5e0!3m2!1sen!2sus!4v1731880000000!5m2!1sen!2sus" allowfullscreen=""></iframe>
+  <div class="about-btn-wrapper">
+    <a href="info.html" class="btn">More About →</a>
+  </div>
 
-  <div id="whyMoveSection" style="display:none;">
-    <h2>Why Move to Kirkland?</h2>
-    <ul>
-      <li>Waterfront parks and walking trails</li>
-      <li>Family-friendly communities and safe neighborhoods</li>
-      <li>Diverse housing options</li>
-      <li>Access to tech industries and jobs</li>
-      <li>Active arts, culture, and small-business scene</li>
+  <h2 id="whyMoveSection">Why Move to Kirkland?</h2>
+
+  <div class="card-list" id="whyMoveBox">
+    <p>Kirkland is a beautiful and welcoming lakeside city known for its safe neighborhoods,
+       thriving small businesses, and active community life. Here’s why many people choose to move here:</p>
+    <ul style="margin-top: 14px;">
+      <li>Clean, safe neighborhoods with strong community feel</li>
+      <li>Waterfront parks, beaches, and scenic walking paths</li>
+      <li>Highly rated schools and youth programs</li>
+      <li>Great restaurants, coffee shops, and local businesses</li>
+      <li>Short commute to Seattle, Bellevue, or Redmond</li>
+      <li>Year-round festivals, markets, and events</li>
     </ul>
   </div>
 
-  <h2>Communities to Join</h2>
-  <ul>
-    <li><a href="https://kirklanddowntown.org/" target="_blank">Kirkland Downtown Association</a></li>
-    <li><a href="https://www.kirklandartscenter.org/" target="_blank">Kirkland Arts Center Groups</a></li>
-    <li><a href="https://www.juanitaneighborhood.com/" target="_blank">Juanita Neighborhood Association</a></li>
-    <li><a href="https://bridletrails.org/" target="_blank">Bridle Trails / Highlands Neighborhood</a></li>
-    <li><a href="https://www.kirklandwa.gov/departments/parks-community-services/volunteer" target="_blank">Kirkland Parks Volunteer Teams</a></li>
-    <li><a href="https://nextdoor.com" target="_blank">Nextdoor – Kirkland</a></li>
-    <li><a href="https://www.facebook.com/search/top?q=Kirkland%20WA%20community" target="_blank">Kirkland Local Facebook Groups</a></li>
-  </ul>
+  <h2 id="history">History of Kirkland</h2>
 
-  <h2>Popular Restaurants</h2>
-  <ul>
-    <li><strong>DERU Market</strong> — 723 9th Ave, Phone: (425) 298-0268, <a href="https://www.derumarket.com/" target="_blank">Website</a></li>
-    <li><strong>Cactus</strong> — 121 Park Ln, Phone: (425) 893-9799, <a href="http://www.cactusrestaurants.com/" target="_blank">Website</a></li>
-    <li><strong>Anthony’s HomePort</strong> — 135 Lake St S, Phone: (425) 822-0225, <a href="https://www.anthonys.com/restaurant/anthonys-homeport-kirkland/" target="_blank">Website</a></li>
-    <li><strong>Isarn Thai Soul Kitchen</strong> — 170 Lake St S, Phone: (425) 298-4429, <a href="https://isarnkitchen.com" target="_blank">Website</a></li>
-    <li><strong>Volterra</strong> — 121 Kirkland Ave, Phone: (425) 202-7201, <a href="https://volterrakirkland.com" target="_blank">Website</a></li>
-  </ul>
+  <div class="timeline" id="timeline">
+    <div class="timeline-item" onclick="toggleTimeline(this)">
+      <div class="circle"></div>
+      <h3>1886</h3>
+      <p>Kirkland was founded by Peter Kirk with plans for a steel industry on Lake Washington.</p>
+    </div>
 
-   <h2>Discover Parks</h2>
-  <div class="accordion">
-    <button onclick="toggleAccordion(this)">Kirkland Waterfront Park</button>
-    <div class="accordion-content">
-      <p>Also known as Marina Park, Marina Park features a sandy beach, boat launch, public art and a beautiful open-air pavilion as well as summer concerts and magnificent views. "A perfect lakeside retreat for families and nature lovers." 25 Lakeshore Plaza Drive, Kirkland 98033</p>
+    <div class="timeline-item" onclick="toggleTimeline(this)">
+      <div class="circle"></div>
+      <h3>1905</h3>
+      <p>Ferry access connected Kirkland to Seattle, boosting growth.</p>
+    </div>
+
+    <div class="timeline-item" onclick="toggleTimeline(this)">
+      <div class="circle"></div>
+      <h3>1980s</h3>
+      <p>Tech companies began to take root, driving rapid expansion.</p>
+    </div>
+
+    <div class="timeline-item" onclick="toggleTimeline(this)">
+      <div class="circle"></div>
+      <h3>2011</h3>
+      <p>Annexation of surrounding neighborhoods increased population and area.</p>
+    </div>
+
+    <div class="timeline-item" onclick="toggleTimeline(this)">
+      <div class="circle"></div>
+      <h3>Today</h3>
+      <p>
+        Kirkland is home to diverse communities, businesses, waterfront recreation,
+        and strong neighborhood connections.
+      </p>
     </div>
   </div>
+
+  <a href="history.html" class="btn">More History →</a>
+
+  <h2 id="map">Kirkland City Map</h2>
+  <div class="map-box">
+    <iframe class="map"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26882.363694387897!2d-122.2169586!3d47.6859576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54906dabebbd6bbb%3A0x77db7c2a5c1f98ad!2sKirkland%2C%20WA!5e0!3m2!1sen!2sus!4v1731880000000!5m2!1sen!2sus">
+    </iframe>
+  </div>
+
+  <h2 id="communities">Communities You Can Join</h2>
+  <div class="card-list">
+    <ul>
+      <li><a href="https://kirklanddowntown.org/" target="_blank">Kirkland Downtown Association</a></li>
+      <li><a href="https://www.kirklandartscenter.org/" target="_blank">Kirkland Arts Center Groups</a></li>
+      <li><a href="https://www.juanitaneighborhood.com/" target="_blank">Juanita Neighborhood Association</a></li>
+      <li><a href="https://bridletrails.org/" target="_blank">Bridle Trails / Highlands Neighborhood</a></li>
+      <li><a href="https://www.kirklandwa.gov/departments/parks-community-services/volunteer" target="_blank">Kirkland Parks Volunteer Teams</a></li>
+      <li><a href="https://nextdoor.com" target="_blank">Nextdoor - Kirkland</a></li>
+      <li><a href="https://www.kirklandwa.gov/Government/Departments/Parks-and-Community-Services/Recreation-Programs-Services/50-Activities-and-Services/Community-Resources" target="_blank">Kirkland Comminity Resources</a></li>
+    </ul>
+  </div>
+
+  <h2 id="restaurants">Popular Restaurants</h2>
+  <div class="card-list">
+    <ul>
+      <li><strong><a href="https://www.derumarket.com" target="_blank">Deru Market</a></strong> — 723 9th Ave • (425) 298-0268</li>
+      <li><strong><a href="https://www.cactusrestaurants.com/location/locations-kirkland" target="_blank">Cactus</a></strong> — 121 Park Ln • (425) 893-9799</li>
+      <li><strong><a href="https://www.anthonys.com/restaurant/anthonys-homeport-kirkland/" target="_blank">Anthony's HomePort</a></strong> — 135 Lake St S • (425) 822-0225</li>
+      <li><strong><a href="https://isarnkitchen.com" target="_blank">Isarn Thai</a></strong> — 170 Lake St S • (425) 298-4429</li>
+      <li><strong><a href="https://volterrakirkland.com" target="_blank">Volterra</a></strong> — 121 Kirkland Ave • (425) 202-7201</li>
+      <li><strong><a href="https://ristoranteparadiso.com" target="_blank">Ristorante Paradiso</a></strong> — 120 Park Ln Suite A • (425) 889-8601</li>
+    </ul>
+  </div>
+
+  <h2 id="parks">Discover Parks</h2>
+
+  <div class="accordion">
+    <button onclick="toggleAccordion(this)">Marina Park</button>
+    <div class="accordion-content"><p>Marina Park features a sandy beach, boat launch, public art and a beautiful open-air pavilion as well as summer concerts and magnificent views. 25 Lakeshore Plaza Drive, Kirkland 98033</p></div>
+  </div>
+
   <div class="accordion">
     <button onclick="toggleAccordion(this)">Juanita Bay Park</button>
-    <div class="accordion-content">
-      <p>Juanita Bay Park abounds with flora and fauna and features views of Forbes Creek Wetland, Juanita Beach and Juanita Bay. Juanita Bay Park is a Green Kirkland Partnership restoration area. "Ideal for wildlife viewing and peaceful walks." 2201 Market St, Kirkland 98033</p>
-    </div>
+    <div class="accordion-content"><p>Juanita Bay Park features flora, fauna, views of Forbes Creek Wetland, Juanita Beach, and Juanita Bay. 2201 Market St, Kirkland 98033</p></div>
   </div>
+
   <div class="accordion">
     <button onclick="toggleAccordion(this)">McAuliffe Park</button>
-    <div class="accordion-content">
-      <p>McAuliffe Park features grassy lawns, ornamental plants, a playground, and a community garden. "Community hub with playgrounds and sports fields." 10824 NE 116 Street, Kirkland 98034</p>
-    </div>
+    <div class="accordion-content"><p>McAuliffe Park is located on a historic farm site in Kirkland's Juanita neighborhood. 10824 NE 116 Street, Kirkland 98034</p></div>
   </div>
+
   <div class="accordion">
     <button onclick="toggleAccordion(this)">Houghton Beach Park</button>
-    <div class="accordion-content">
-      <p>Doris Cooper Houghton Beach Park is a waterfront community park located in Kirkland's Lakeview neighborhood that features a playground, picnic areas, sand volleyball court, and seasonal swimming area. "Small beach with a charming view for picnics and kayaking." 5811 Lake Washington Blvd, Kirkland 98033</p>
-    </div>
+    <div class="accordion-content"><p>A waterfront community park located in Kirkland's Lakeview neighborhood. 5811 Lake Washington Blvd, Kirkland 98033</p></div>
   </div>
+
   <div class="accordion">
     <button onclick="toggleAccordion(this)">Everest Park</button>
-    <div class="accordion-content">
-      <p>Everest Park is a community park with many amenities, including pickleball courts, ballfields, a playground, and a picnic shelter. "Quiet neighborhood park with open green spaces." 500 8th St S, Kirkland 98033</p>
-
-    </div>
+    <div class="accordion-content"><p>Everest Park is a community park with many amenities, including pickleball courts, ballfields, a playground, and a picnic shelter. 500 8th St S, Kirkland 98033</p></div>
   </div>
 
+  <h2 id="worksCited">Works Cited</h2>
+  <a href="resources.html" class="btn">Resources →</a>
 </div>
 
 <script>
-function handleSelection() {
-  const value = document.getElementById("kirklandSelect").value;
-  const text = document.getElementById("responseText");
-  const whyMove = document.getElementById("whyMoveSection");
-  const mainContent = document.getElementById("mainContent");
-
-  if (value === "yes") {
-    text.textContent = "Welcome back, neighbor!";
-    whyMove.style.display = "none";
-  } else if (value === "no") {
-    text.textContent = "Great! Explore and discover what Kirkland offers.";
-    whyMove.style.display = "block";
-  }
-
-  mainContent.style.display = "block";
-  document.getElementById("welcomeBox").style.display = "none";
-}
-
 function toggleAccordion(button) {
   const content = button.nextElementSibling;
   content.style.display = content.style.display === "block" ? "none" : "block";
+}
+
+function scrollToSection(id) {
+  document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+}
+
+function toggleTimeline(item) {
+  item.classList.toggle("active");
 }
 </script>
 
