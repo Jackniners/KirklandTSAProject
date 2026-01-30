@@ -31,7 +31,7 @@ header.hero {
 }
 
 body.resources header.hero {
-  background-image: url('https://www.kirklandwa.gov/files/sharedassets/public/parks-amp-comm-services/online-parks-guide/images/marina-park-fall2018-800x600.jpg');
+  background-image: url('https://sandee.com/_next/image?url=https%3A%2F%2Fcdn.sandee.com%2F54395_1650_1100.avif&w=640&q=75');
 }
 
 body.history header.hero {
@@ -39,7 +39,7 @@ body.history header.hero {
 }
 
 body.info header.hero {
-  background-image: url('https://media-production.lp-cdn.com/cdn-cgi/image/format=auto,quality=85/https://media-production.lp-cdn.com/media/f8e08f7b-cf16-484e-9084-c417fcf6304d');
+  background-image: url('https://explore-kirkland.s3.amazonaws.com/images/main-images/202206_Kirkland_Downtown_Aerial_NeirChris_0820_74346e7f-d746-4094-87b5-46748b6c948f.jpg?v=1761868730');
 }
 
 .hero-overlay {
@@ -104,7 +104,7 @@ body.info header.hero {
   max-width: 1180px;
   margin: auto;
   padding: 30px 20px;
-  padding-top: 100px; /* ensures content starts below hero */
+  padding-top: 100px;
 }
 
 h2 {
@@ -136,7 +136,7 @@ a {
   padding: 30px;
   border-radius: 16px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.07);
-  margin-top: -60px; /* overlaps hero slightly for style */
+  margin-top: -60px;
   position: relative;
   z-index: 1;
 }
