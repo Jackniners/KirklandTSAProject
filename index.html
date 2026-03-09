@@ -1,28 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/jpg" href="KirkSeal.png">
-    <link rel="stylesheet" href="style.css">
-    <title>Kirkland Compass</title>
-
-    <style>
-      .about-btn-wrapper {
-        margin-top: 28px;
-      }
-
-      .timeline-item p {
-        display: none;
-      }
-
-      .timeline-item.active p {
-        display: block;
-      }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/jpg" href="KirkSeal.png">
+  <link rel="stylesheet" href="style.css">
+  <title>Kirkland Compass</title>
+  <style>
+    .about-btn-wrapper { margin-top: 28px; }
+    .timeline-item p { display: none; }
+    .timeline-item.active p { display: block; }
+  </style>
 </head>
 
 <body class="home">
+
 <header class="hero">
   <div class="hero-overlay"></div>
   <div class="hero-content">
@@ -31,22 +23,20 @@
   </div>
 </header>
 
-
 <div class="subnav">
-  <span onclick="scrollToSection('about')">About</span>
-  <span id="whyMoveNav" onclick="scrollToSection('whyMoveSection')">Why Move?</span>
-  <span onclick="scrollToSection('history')">History</span>
-  <span onclick="scrollToSection('map')">Map</span>
-  <span onclick="scrollToSection('communities')">Communities</span>
-  <span onclick="scrollToSection('restaurants')">Restaurants</span>
-  <span onclick="scrollToSection('parks')">Parks</span>
-  <span onclick="scrollToSection('worksCited')">Works Cited</span>
+  <a href="#about">About</a>
+  <a href="#whyMoveSection">Why Move?</a>
+  <a href="#history">History</a>
+  <a href="#map">Map</a>
+  <a href="#communities">Communities</a>
+  <a href="#restaurants">Restaurants</a>
+  <a href="#parks">Parks</a>
+  <a href="#worksCited">Works Cited</a>
 </div>
 
-<div class="wrapper" id="mainContent" style="display: block;">
+<div class="wrapper">
 
   <h2 id="about">About Kirkland</h2>
-
   <div class="card-list">
     <p>
       Kirkland is a suburb of Seattle on the east side of Lake Washington. It is well-known
@@ -57,16 +47,14 @@
       It provides great restaurants, fantastic views, outdoor activities, and a vibrant sense of community.
     </p>
   </div>
-
   <div class="about-btn-wrapper">
     <a href="info.html" class="btn">Click Here to Learn More About Kirkland →</a>
   </div>
 
   <h2 id="whyMoveSection">Why Move to Kirkland?</h2>
-
-  <div class="card-list" id="whyMoveBox">
+  <div class="card-list">
     <p>Kirkland is a beautiful and welcoming lakeside city known for its safe neighborhoods,
-       thriving small businesses, and active community life. Here’s why many people choose to move here:</p>
+       thriving small businesses, and active community life. Here's why many people choose to move here:</p>
     <ul style="margin-top: 14px;">
       <li>Clean, safe neighborhoods with strong community feel</li>
       <li>Waterfront parks, beaches, and scenic walking paths</li>
@@ -78,42 +66,33 @@
   </div>
 
   <h2 id="history">History of Kirkland</h2>
-
-  <div class="timeline" id="timeline">
+  <div class="timeline">
     <div class="timeline-item" onclick="toggleTimeline(this)">
       <div class="circle"></div>
       <h3>1886</h3>
       <p>Kirkland was founded by Peter Kirk with plans for a steel industry on Lake Washington.</p>
     </div>
-
     <div class="timeline-item" onclick="toggleTimeline(this)">
       <div class="circle"></div>
       <h3>1905</h3>
       <p>Ferry access connected Kirkland to Seattle, boosting growth.</p>
     </div>
-
     <div class="timeline-item" onclick="toggleTimeline(this)">
       <div class="circle"></div>
       <h3>1980s</h3>
       <p>Tech companies began to take root, driving rapid expansion.</p>
     </div>
-
     <div class="timeline-item" onclick="toggleTimeline(this)">
       <div class="circle"></div>
       <h3>2011</h3>
       <p>Annexation of surrounding neighborhoods increased population and area.</p>
     </div>
-
     <div class="timeline-item" onclick="toggleTimeline(this)">
       <div class="circle"></div>
       <h3>Today</h3>
-      <p>
-        Kirkland is home to diverse communities, businesses, waterfront recreation,
-        and strong neighborhood connections.
-      </p>
+      <p>Kirkland is home to diverse communities, businesses, waterfront recreation, and strong neighborhood connections.</p>
     </div>
   </div>
-
   <a href="history.html" class="btn">Click Here to Learn More About the History of Kirkland →</a>
 
   <h2 id="map">Kirkland City Map</h2>
@@ -132,7 +111,7 @@
       <li><a href="https://bridletrails.org/" target="_blank">Bridle Trails / Highlands Neighborhood</a></li>
       <li><a href="https://www.kirklandwa.gov/departments/parks-community-services/volunteer" target="_blank">Kirkland Parks Volunteer Teams</a></li>
       <li><a href="https://nextdoor.com" target="_blank">Nextdoor - Kirkland</a></li>
-      <li><a href="https://www.kirklandwa.gov/Government/Departments/Parks-and-Community-Services/Recreation-Programs-Services/50-Activities-and-Services/Community-Resources" target="_blank">Kirkland Comminity Resources</a></li>
+      <li><a href="https://www.kirklandwa.gov/Government/Departments/Parks-and-Community-Services/Recreation-Programs-Services/50-Activities-and-Services/Community-Resources" target="_blank">Kirkland Community Resources</a></li>
     </ul>
   </div>
 
@@ -149,61 +128,48 @@
   </div>
 
   <h2 id="parks">Discover Parks</h2>
-
-<div class="accordion">
-  <input type="checkbox" id="accordion1" />
-  <label for="accordion1">Marina Park</label>
-  <div class="accordion-content">
-    <p>Marina Park features a sandy beach, boat launch, public art and a beautiful open-air pavilion as well as summer concerts and magnificent views. 25 Lakeshore Plaza Drive, Kirkland 98033</p>
+  <div class="accordion">
+    <input type="checkbox" id="accordion1" />
+    <label for="accordion1">Marina Park</label>
+    <div class="accordion-content">
+      <p>Marina Park features a sandy beach, boat launch, public art and a beautiful open-air pavilion as well as summer concerts and magnificent views. 25 Lakeshore Plaza Drive, Kirkland 98033</p>
+    </div>
   </div>
-</div>
-
-<div class="accordion">
-  <input type="checkbox" id="accordion2" />
-  <label for="accordion2">Juanita Bay Park</label>
-  <div class="accordion-content">
-    <p>Juanita Bay Park features flora, fauna, views of Forbes Creek Wetland, Juanita Beach, and Juanita Bay. 2201 Market St, Kirkland 98033</p>
+  <div class="accordion">
+    <input type="checkbox" id="accordion2" />
+    <label for="accordion2">Juanita Bay Park</label>
+    <div class="accordion-content">
+      <p>Juanita Bay Park features flora, fauna, views of Forbes Creek Wetland, Juanita Beach, and Juanita Bay. 2201 Market St, Kirkland 98033</p>
+    </div>
   </div>
-</div>
-
-<div class="accordion">
-  <input type="checkbox" id="accordion3" />
-  <label for="accordion3">McAuliffe Park</label>
-  <div class="accordion-content">
-    <p>McAuliffe Park is located on a historic farm site in Kirkland's Juanita neighborhood. 10824 NE 116 Street, Kirkland 98034</p>
+  <div class="accordion">
+    <input type="checkbox" id="accordion3" />
+    <label for="accordion3">McAuliffe Park</label>
+    <div class="accordion-content">
+      <p>McAuliffe Park is located on a historic farm site in Kirkland's Juanita neighborhood. 10824 NE 116 Street, Kirkland 98034</p>
+    </div>
   </div>
-</div>
-
-<div class="accordion">
-  <input type="checkbox" id="accordion4" />
-  <label for="accordion4">Houghton Beach Park</label>
-  <div class="accordion-content">
-    <p>A waterfront community park located in Kirkland's Lakeview neighborhood. 5811 Lake Washington Blvd, Kirkland 98033</p>
+  <div class="accordion">
+    <input type="checkbox" id="accordion4" />
+    <label for="accordion4">Houghton Beach Park</label>
+    <div class="accordion-content">
+      <p>A waterfront community park located in Kirkland's Lakeview neighborhood. 5811 Lake Washington Blvd, Kirkland 98033</p>
+    </div>
   </div>
-</div>
-
-<div class="accordion">
-  <input type="checkbox" id="accordion5" />
-  <label for="accordion5">Everest Park</label>
-  <div class="accordion-content">
-    <p>Everest Park is a community park with many amenities, including pickleball courts, ballfields, a playground, and a picnic shelter. 500 8th St S, Kirkland 98033</p>
+  <div class="accordion">
+    <input type="checkbox" id="accordion5" />
+    <label for="accordion5">Everest Park</label>
+    <div class="accordion-content">
+      <p>Everest Park is a community park with many amenities, including pickleball courts, ballfields, a playground, and a picnic shelter. 500 8th St S, Kirkland 98033</p>
+    </div>
   </div>
-</div>
 
   <h2 id="worksCited">Works Cited</h2>
   <a href="resources.html" class="btn">Resources →</a>
+
 </div>
 
 <script>
-function toggleAccordion(button) {
-  const content = button.nextElementSibling;
-  content.style.display = content.style.display === "block" ? "none" : "block";
-}
-
-function scrollToSection(id) {
-  document.getElementById(id).scrollIntoView({ behavior: "smooth" });
-}
-
 function toggleTimeline(item) {
   item.classList.toggle("active");
 }
