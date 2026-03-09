@@ -10,6 +10,7 @@
   --gold: #d4b35b;
   --soft-bg: #f7f7f5;
   --text: #2a2a2a;
+  --subnav-height: 48px;
 }
 
 body {
@@ -19,7 +20,10 @@ body {
   line-height: 1.7;
 }
 
-/* ── Hero ───────────────────────────────────────────────────── */
+h2[id] {
+  scroll-margin-top: calc(var(--subnav-height) + 20px);
+}
+
 header.hero {
   position: relative;
   height: 70vh;
@@ -46,7 +50,7 @@ body.info header.hero {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 100%);
+  background: linear-gradient(to bottom, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.62) 100%);
 }
 
 .hero-content {
@@ -69,7 +73,6 @@ body.info header.hero {
   text-shadow: 0 1px 8px rgba(0,0,0,0.35);
 }
 
-/* Gold divider line under hero text */
 .hero-content::after {
   content: '';
   display: block;
@@ -80,12 +83,14 @@ body.info header.hero {
   border-radius: 2px;
 }
 
-/* ── Subnav ─────────────────────────────────────────────────── */
 .subnav {
-  background: rgba(255, 255, 255, 0.82);
+  height: var(--subnav-height);
+  background: rgba(255, 255, 255, 0.88);
   border-bottom: 2px solid var(--gold);
-  padding: 12px 0;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   position: sticky;
@@ -94,45 +99,47 @@ body.info header.hero {
   box-shadow: 0 2px 10px rgba(0,0,0,0.08);
 }
 
-.subnav span {
-  margin: 0 20px;
-  font-weight: 650;
+.subnav a {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
   color: var(--green);
-  cursor: pointer;
+  text-decoration: none;
   position: relative;
-  padding-bottom: 3px;
-  transition: color 0.2s ease;
+  padding: 6px 10px;
+  border-radius: 4px;
+  transition: color 0.2s ease, background 0.2s ease;
 }
 
-.subnav span:hover {
-  color: var(--green-light);
+.subnav a:hover {
+  color: var(--green);
+  background: rgba(31, 77, 58, 0.07);
 }
 
-.subnav span::after {
+.subnav a::after {
   content: "";
   position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 0;
-  height: 3px;
+  left: 10px;
+  right: 10px;
+  bottom: 0px;
+  height: 2px;
   background: var(--gold);
   border-radius: 2px;
-  transition: width 0.25s ease;
+  transform: scaleX(0);
+  transition: transform 0.25s ease;
 }
 
-.subnav span:hover::after {
-  width: 100%;
+.subnav a:hover::after {
+  transform: scaleX(1);
 }
 
-/* ── Wrapper ─────────────────────────────────────────────────── */
 .wrapper {
   max-width: 1180px;
   margin: auto;
   padding: 30px 20px;
-  padding-top: 100px;
+  padding-top: 60px;
 }
 
-/* ── Headings ────────────────────────────────────────────────── */
 h2 {
   color: var(--green);
   margin-top: 50px;
@@ -152,7 +159,6 @@ a:hover {
   color: var(--green);
 }
 
-/* ── Cards ───────────────────────────────────────────────────── */
 .card-list,
 .card-list-info {
   background: white;
@@ -172,7 +178,6 @@ a:hover {
   z-index: 1;
 }
 
-/* ── Timeline ────────────────────────────────────────────────── */
 .timeline {
   position: relative;
   padding: 40px 0;
@@ -242,7 +247,6 @@ a:hover {
   display: block;
 }
 
-/* ── Map ─────────────────────────────────────────────────────── */
 .map-box {
   margin-top: 20px;
 }
@@ -255,7 +259,6 @@ a:hover {
   box-shadow: 0 4px 16px rgba(0,0,0,0.1);
 }
 
-/* ── Accordion ───────────────────────────────────────────────── */
 .accordion {
   background: white;
   border-radius: 12px;
@@ -317,7 +320,6 @@ a:hover {
   padding: 16px 20px;
 }
 
-/* ── Button ──────────────────────────────────────────────────── */
 .btn {
   display: inline-block;
   text-decoration: none;
@@ -339,13 +341,11 @@ a:hover {
   color: white;
 }
 
-/* ── Center ──────────────────────────────────────────────────── */
 .center {
   text-align: center;
   padding: 20px;
 }
 
-/* ── Gallery ─────────────────────────────────────────────────── */
 .gallery-container {
   max-width: 1000px;
   margin: 40px auto;
@@ -378,7 +378,6 @@ figcaption {
   color: #555;
 }
 
-/* ── Works Cited ─────────────────────────────────────────────── */
 .works-cited {
   margin-top: 40px;
   border-top: 2px solid #ddd;
@@ -389,9 +388,7 @@ figcaption {
   padding-left: 20px;
 }
 
-/* ── Page Themes ─────────────────────────────────────────────── */
 
-/* Index & Info */
 body.home,
 body.info {
   --green: #25684c;
@@ -401,7 +398,6 @@ body.info {
   --text: #1f2f3a;
 }
 
-/* History */
 body.history {
   --green: #111111;
   --green-light: #333333;
@@ -410,7 +406,6 @@ body.history {
   --text: #111111;
 }
 
-/* Resources */
 body.resources {
   --green: #2e8b57;
   --green-light: #3cb371;
