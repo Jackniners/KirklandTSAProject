@@ -21,7 +21,7 @@ body {
 
 header.hero {
   position: relative;
-  height: 100vh;
+  height: 70vh;
   background-image: url("https://www.kirklandwa.gov/files/assets/public/v/1/images/marinapark3retouched.jpg?dimension=pageimagefullwidth&w=1140");
   background-size: cover;
   background-position: center;
@@ -66,7 +66,7 @@ body.info header.hero {
 }
 
 .subnav {
-  background: #ffffffdd;
+  background: #ffffff4b;
   border-bottom: 2px solid var(--gold);
   padding: 12px 0;
   text-align: center;
@@ -120,7 +120,8 @@ a {
   color: var(--green-light);
 }
 
-.card-list {
+.card-list,
+.card-list-info {
   background: white;
   padding: 30px;
   border-radius: 16px;
@@ -132,10 +133,6 @@ a {
 }
 
 .card-list-info {
-  background: white;
-  padding: 30px;
-  border-radius: 16px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.07);
   margin-top: -60px;
   position: relative;
   z-index: 1;
@@ -212,31 +209,51 @@ a {
   border: 2px solid var(--green-light);
 }
 
+/*Accordion*/
+
 .accordion {
   background: white;
   border-radius: 12px;
   margin-bottom: 15px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   border-left: 5px solid var(--gold);
   overflow: hidden;
 }
 
-.accordion button {
+.accordion input {
+  display: none;
+}
+
+.accordion label {
+  display: block;
   background: var(--green-light);
   color: white;
   padding: 16px 20px;
-  width: 100%;
-  border: none;
   cursor: pointer;
-  text-align: left;
   font-size: 16px;
+  transition: background 0.25s ease;
+}
+
+.accordion label:hover {
+  background: var(--green);
 }
 
 .accordion-content {
-  display: none;
-  padding: 16px 20px;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  padding: 0 20px;
   background: #fafafa;
+  transition: max-height 0.45s ease, opacity 0.35s ease, padding 0.35s ease;
 }
+
+.accordion input:checked + label + .accordion-content {
+  max-height: 400px;
+  opacity: 1;
+  padding: 16px 20px;
+}
+
+/*Accordion*/
 
 .btn {
   display: inline-block;
@@ -291,4 +308,34 @@ figcaption {
 
 .works-cited ul {
   padding-left: 20px;
+}
+
+/*Page Themes*/
+
+/*Index & Info*/
+body.home,
+body.info {
+  --green: #25684c;
+  --green-light: #308661;
+  --gold: #d4b35b;
+  --soft-bg: #ffffff9d;
+  --text: #1f2f3a;
+}
+
+/*History*/
+body.history {
+  --green: #111111;
+  --green-light: #333333;
+  --gold: #888888;
+  --soft-bg: #f2f2f2;
+  --text: #111111;
+}
+
+/*Resources*/
+body.resources {
+  --green: #2e8b57;
+  --green-light: #3cb371;
+  --gold: #4da6ff;
+  --soft-bg: #f2e6c9;
+  --text: #1f2f3a;
 }
