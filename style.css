@@ -77,12 +77,12 @@ body.info header.hero {
 }
 
 .subnav span {
-  margin: 0 15px;
-  font-weight: 600;
+  margin: 0 20px;
+  font-weight: 650;
   color: var(--green);
   cursor: pointer;
   position: relative;
-  padding-bottom: 4px;
+  padding-bottom: 3px;
 }
 
 .subnav span::after {
@@ -318,7 +318,7 @@ body.info {
   --green: #25684c;
   --green-light: #308661;
   --gold: #d4b35b;
-  --soft-bg: #ffffff9d;
+  --soft-bg: #f1f1f1;
   --text: #1f2f3a;
 }
 
@@ -327,7 +327,7 @@ body.history {
   --green: #111111;
   --green-light: #333333;
   --gold: #888888;
-  --soft-bg: #f2f2f2;
+  --soft-bg: #f1f1f1;
   --text: #111111;
 }
 
@@ -336,6 +336,6 @@ body.resources {
   --green: #2e8b57;
   --green-light: #3cb371;
   --gold: #4da6ff;
-  --soft-bg: #f2e6c9;
+  --soft-bg: #f1f1f1;
   --text: #1f2f3a;
 }
